@@ -12,10 +12,10 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var userNameTF: UITextField!
-    @IBOutlet var passwardTF: UITextField!
+    @IBOutlet var passwordTF: UITextField!
     
     private let userName = "Uliana"
-    private let passward = "12345"
+    private let password = "12345"
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let welcomeVC = segue.destination as? WelcomeViewController
@@ -30,14 +30,14 @@ class ViewController: UIViewController {
             )
             return
         }
-        guard let passwardInput = passwardTF.text, !passwardInput.isEmpty else {
+        guard let passwordInput = passwordTF.text, !passwordInput.isEmpty else {
             showAlert(
                 withTitle: "field cannot be empty",
-                andMessage: "enter your passward"
+                andMessage: "enter your password"
             )
             return
         }
-        guard userNameInput == userName, passwardInput == passward else {
+        guard userNameInput == userName, passwordInput == password else {
             showAlert(
                 withTitle: "wrong login or password",
                 andMessage: "try again"
@@ -49,13 +49,13 @@ class ViewController: UIViewController {
     @IBAction func showUsername() {
         showAlert(withTitle: "your name", andMessage: "Uliana")
     }
-    @IBAction func showPassward() {
-        showAlert(withTitle: "your passward", andMessage: "12345")
+    @IBAction func showPassword() {
+        showAlert(withTitle: "your password", andMessage: "12345")
     }
 
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         userNameTF.text = nil
-        passwardTF.text = nil
+        passwordTF.text = nil
     }
 
     private func showAlert(withTitle title: String, andMessage message: String) {
